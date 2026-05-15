@@ -882,21 +882,43 @@
   </div>
 
   <script>
-    function sendForm() {
+    async function sendForm() {
       var name = document.getElementById('f-name').value.trim();
       var email = document.getElementById('f-email').value.trim();
+      var tel = document.getElementById('f-tel').value.trim();
       var msg = document.getElementById('f-msg').value.trim();
       document.getElementById('form-error').style.display = 'none';
+      document.getElementById('form-success').style.display = 'none';
       if (!name || !email || !msg) {
         document.getElementById('form-error').style.display = 'block';
         return;
       }
-      document.getElementById('submit-btn').textContent = 'Sender...';
-      document.getElementById('submit-btn').disabled = true;
-      setTimeout(function() {
-        document.getElementById('form-success').style.display = 'block';
-        document.getElementById('submit-btn').style.display = 'none';
-      }, 800);
+      var btn = document.getElementById('submit-btn');
+      btn.textContent = 'Sender...';
+      btn.disabled = true;
+      try {
+        var response = await fetch('https://formspree.io/f/mnjwevyq', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ navn: name, epost: email, telefon: tel, melding: msg })
+        });
+        if (response.ok) {
+          document.getElementById('form-success').style.display = 'block';
+          btn.style.display = 'none';
+          document.getElementById('f-name').value = '';
+          document.getElementById('f-email').value = '';
+          document.getElementById('f-tel').value = '';
+          document.getElementById('f-msg').value = '';
+        } else {
+          btn.textContent = 'Send melding →';
+          btn.disabled = false;
+          document.getElementById('form-error').style.display = 'block';
+        }
+      } catch(e) {
+        btn.textContent = 'Send melding →';
+        btn.disabled = false;
+        document.getElementById('form-error').style.display = 'block';
+      }
     }
     document.getElementById('submit-btn').addEventListener('mouseover', function(){ this.style.background='var(--accent-dim)'; this.style.transform='translateY(-1px)'; });
     document.getElementById('submit-btn').addEventListener('mouseout', function(){ this.style.background='var(--accent)'; this.style.transform='none'; });
