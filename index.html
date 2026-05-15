@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GENIAL! Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a0e1a;
+      --navy-2: #111827;
+      --navy-3: #1a2236;
+      --navy-4: #243047;
+      --accent: #e8f04a;
+      --accent-dim: #c9d130;
+      --white: #f5f7ff;
+      --muted: #8892a4;
+      --border: rgba(255,255,255,0.08);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 4rem;
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--navy);
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover { background: var(--accent-dim); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(232,240,74,0.07) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      max-width: 820px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--navy);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--accent-dim); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border);
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.25); background: var(--navy-3); }
+
+
+
+    /* SECTIONS */
+    section { padding: 6rem 4rem; max-width: 1200px; margin: 0 auto; }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 480px;
+    }
+
+    /* SERVICES */
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--navy-2);
+      padding: 2.5rem;
+      transition: background 0.2s;
+    }
+
+    .service-card:hover { background: var(--navy-3); }
+
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* PROCESS */
+    .process-section {
+      background: var(--navy-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 4rem;
+    }
+
+    .process-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .step {
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    .step-dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .step:hover .step-dot {
+      background: var(--accent);
+      color: var(--navy);
+      border-color: var(--accent);
+    }
+
+    .step h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* WHY */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .why-item {
+      background: var(--navy-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .why-item:hover { border-color: rgba(232,240,74,0.25); }
+
+    .why-icon-wrap {
+      width: 48px;
+      height: 48px;
+      background: rgba(232,240,74,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+
+    .why-item h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-item p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 8rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232,240,74,0.06) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.05;
+      position: relative;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      position: relative;
+    }
+
+    .cta-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .contact-link {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--white); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: var(--navy-2);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    footer p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* DIVIDER */
+    .full-divider { border: none; border-top: 1px solid var(--border); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-section { padding: 4rem 1.5rem; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .process-steps::before { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">GENIAL<span>!</span> Marketing</div>
+    <ul class="nav-links">
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#prosess">Prosess</a></li>
+      <li><a href="#om-meg">Om meg</a></li>
+      <li><a href="#priser">Priser</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Kom i gang</button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><span></span> Digitalt markedsføringsbyrå</div>
+    <h1 class="fade-up">Vi gjør bedriften din<br><em>synlig — og lønnsom</em></h1>
+    <p class="fade-up delay-1">Fra nettside til Google-toppen og sosiale medier. Vi tar hånd om hele din digitale tilstedeværelse.</p>
+    <div class="hero-btns fade-up delay-2">
+      <a href="#kontakt" class="btn-primary">Få et uforpliktende tilbud</a>
+      <a href="#tjenester" class="btn-outline">Se hva vi tilbyr →</a>
+    </div>
+  </div>
+
+
+
+  <!-- SERVICES -->
+  <section id="tjenester">
+    <div class="services-header">
+      <div>
+        <div class="section-tag">Tjenester</div>
+        <h2 class="section-title">Alt du trenger på ett sted</h2>
+        <p class="section-sub">Komplette digitale løsninger, skreddersydd for din bedrift og ditt marked.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">🖥</div>
+        <h3>Nettside</h3>
+        <p>Profesjonelle, raske og mobilvenlige nettsider som konverterer besøkende til kunder. Vi designer og bygger alt fra enkle landingssider til komplette bedriftsnettsteder.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">🔍</div>
+        <h3>Google SEO</h3>
+        <p>Vi optimaliserer siden din slik at du havner øverst i søkeresultatene der kundene dine leter. Organisk synlighet som gir langsiktige resultater.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">📢</div>
+        <h3>Digitale kampanjer</h3>
+        <p>Målrettede annonsekampanjer på Google, Meta og andre kanaler. Vi setter opp, optimaliserer og rapporterer — du ser nøyaktig hva pengene gir tilbake.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">📱</div>
+        <h3>Sosiale medier</h3>
+        <p>Vi håndterer profiler, lager innhold og bygger et engasjert publikum rundt merkevaren din. Konsekvent tilstedeværelse uten at du trenger å løfte en finger.</p>
+      </div>
+    </div>
+
+    <!-- PRISPAKKER -->
+    <div id="priser" style="margin-top: 4rem;">
+      <div style="text-align:center; margin-bottom: 3rem;">
+        <div class="section-tag">Priser</div>
+        <h2 class="section-title">Enkle, transparente pakker</h2>
+        <p style="color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 460px; margin: 0 auto;">Ingen skjulte kostnader. Velg pakken som passer deg — eller ta kontakt for en skreddersydd løsning.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <!-- STARTER -->
+        <div style="background: var(--navy-2); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; display:flex; flex-direction:column;">
+          <div style="font-size: 0.75rem; color: var(--muted); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; margin-bottom:1rem;">Starter</div>
+          <div style="font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; letter-spacing:-0.02em; line-height:1; margin-bottom:0.3rem;">4 990 <span style="font-size:1rem; font-weight:400; color:var(--muted);">kr/mnd</span></div>
+          <div style="font-size: 0.82rem; color: var(--muted); margin-bottom: 1.75rem;">For deg som er ny digitalt</div>
+          <ul style="list-style:none; flex:1; margin-bottom:2rem;">
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Enkel nettside (opptil 5 sider)</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Grunnleggende SEO-oppsett</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Google Business-profil</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Månedlig rapport</li>
+          </ul>
+          <a href="#kontakt" style="display:block; text-align:center; border:1px solid var(--border); color:var(--white); padding:0.85rem; border-radius:8px; text-decoration:none; font-size:0.9rem; font-weight:500; transition:background 0.2s;" onmouseover="this.style.background='var(--navy-4)'" onmouseout="this.style.background='transparent'">Kom i gang</a>
+        </div>
+        <!-- VEKST -->
+        <div style="background: var(--navy); border: 1.5px solid var(--accent); border-radius: 16px; padding: 2.25rem; display:flex; flex-direction:column; position:relative;">
+          <div style="position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--accent); color:var(--navy); font-size:0.7rem; font-weight:700; padding:4px 14px; border-radius:20px; text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap;">Mest populær</div>
+          <div style="font-size: 0.75rem; color: var(--accent); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; margin-bottom:1rem;">Vekst</div>
+          <div style="font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; letter-spacing:-0.02em; line-height:1; margin-bottom:0.3rem;">9 990 <span style="font-size:1rem; font-weight:400; color:var(--muted);">kr/mnd</span></div>
+          <div style="font-size: 0.82rem; color: var(--muted); margin-bottom: 1.75rem;">For bedrifter som vil vokse</div>
+          <ul style="list-style:none; flex:1; margin-bottom:2rem;">
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Alt i Starter</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Løpende SEO-optimalisering</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Google Ads-kampanje</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Sosiale medier (2 plattformer)</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Bi-ukentlig statusmøte</li>
+          </ul>
+          <a href="#kontakt" style="display:block; text-align:center; background:var(--accent); color:var(--navy); padding:0.85rem; border-radius:8px; text-decoration:none; font-size:0.9rem; font-weight:600; transition:background 0.2s;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='var(--accent)'">Kom i gang</a>
+        </div>
+        <!-- PRO -->
+        <div style="background: var(--navy-2); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; display:flex; flex-direction:column;">
+          <div style="font-size: 0.75rem; color: var(--muted); text-transform:uppercase; letter-spacing:0.1em; font-weight:500; margin-bottom:1rem;">Pro</div>
+          <div style="font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; letter-spacing:-0.02em; line-height:1; margin-bottom:0.3rem;">19 990 <span style="font-size:1rem; font-weight:400; color:var(--muted);">kr/mnd</span></div>
+          <div style="font-size: 0.82rem; color: var(--muted); margin-bottom: 1.75rem;">Full digital tilstedeværelse</div>
+          <ul style="list-style:none; flex:1; margin-bottom:2rem;">
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Alt i Vekst</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Skreddersydd innholdsstrategi</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Meta + Google Ads</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Alle sosiale plattformer</li>
+            <li style="font-size:0.9rem; color:var(--muted); padding:0.55rem 0; display:flex; gap:0.6rem;"><span style="color:var(--accent);">✓</span> Dedikert strategimøte hver uke</li>
+          </ul>
+          <a href="#kontakt" style="display:block; text-align:center; border:1px solid var(--border); color:var(--white); padding:0.85rem; border-radius:8px; text-decoration:none; font-size:0.9rem; font-weight:500; transition:background 0.2s;" onmouseover="this.style.background='var(--navy-4)'" onmouseout="this.style.background='transparent'">Kom i gang</a>
+        </div>
+      </div>
+      <p style="text-align:center; color:var(--muted); font-size:0.82rem; margin-top:1.5rem;">Alle priser er eks. mva. Trenger du noe annet? <a href="#kontakt" style="color:var(--accent); text-decoration:none;">Ta kontakt for et tilpasset tilbud →</a></p>
+      <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-top:1.25rem; background:rgba(232,240,74,0.06); border:1px solid rgba(232,240,74,0.15); border-radius:10px; padding:0.85rem 1.5rem;">
+        <span style="display:inline-block; width:8px; height:8px; background:var(--accent); border-radius:50%; flex-shrink:0; animation: pulse 2s infinite;"></span>
+        <p style="font-size:0.88rem; color:var(--white); margin:0;">Vi tar kun inn <strong style="color:var(--accent);">8 nye kunder</strong> av gangen for å sikre kvaliteten på arbeidet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <div class="process-section" id="prosess">
+    <div class="process-inner">
+      <div class="section-tag">Prosess</div>
+      <h2 class="section-title">Fra idé til resultater</h2>
+      <p class="section-sub">En tydelig og effektiv prosess — du vet alltid hva som skjer.</p>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-dot">1</div>
+          <h4>Møte</h4>
+          <p>Vi lærer bedriften din å kjenne og setter felles mål.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot">2</div>
+          <h4>Strategi</h4>
+          <p>Vi lager en skreddersydd plan for din bransje.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot">3</div>
+          <h4>Produksjon</h4>
+          <p>Vi bygger, skriver og designer alt som trengs.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot">4</div>
+          <h4>Lansering</h4>
+          <p>Kampanjer og nettsider går live — vi følger opp.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot">5</div>
+          <h4>Vekst</h4>
+          <p>Kontinuerlig optimalisering basert på data.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY -->
+  <section id="om-oss" style="text-align:center;">
+    <div class="section-tag">Hvorfor oss</div>
+    <h2 class="section-title">Laget for norske bedrifter</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon-wrap">⚡</div>
+        <div>
+          <h4>Raske leveranser</h4>
+          <p>Vi jobber effektivt og holder alltid avtaler og tidsfrister. Du venter ikke i måneder for å se resultater.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon-wrap">📊</div>
+        <div>
+          <h4>Datadrevet tilnærming</h4>
+          <p>Alle beslutninger baseres på tall og analyser — ikke magefølelse. Du får rapporter du faktisk forstår.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon-wrap">💬</div>
+        <div>
+          <h4>Tett dialog</h4>
+          <p>Du har alltid én dedikert kontaktperson som kjenner prosjektet ditt og er tilgjengelig når du trenger det.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon-wrap">🛡</div>
+        <div>
+          <h4>Ingen overraskelser</h4>
+          <p>Fast pris og tydelig scope på alle prosjekter. Ingen skjulte kostnader eller ubehagelige fakturaer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OM MEG -->
+  <div id="om-meg" style="border-top: 1px solid var(--border); padding: 6rem 2rem;">
+    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: center;">
+      <div style="text-align:center;">
+        <div style="width: 200px; height: 200px; border-radius: 50%; border: 2px solid var(--border); margin: 0 auto 1.5rem; overflow:hidden;">
+          <img src="orjan.png" alt="Ørjan Svendsgård" style="width:100%; height:100%; object-fit:cover; object-position: center 15%;">
+        </div>
+        <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem;">Ørjan Svendsgård</div>
+        <div style="font-size: 0.82rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;">Grunnlegger, GENIAL! Marketing</div>
+      </div>
+      <div>
+        <div class="section-tag">Om meg</div>
+        <h2 class="section-title" style="margin-bottom: 1.25rem;">Lidenskapen er<br><em style="font-style:normal; color:var(--accent);">kreativ markedsføring</em></h2>
+        <p style="color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.8; margin-bottom: 1rem;">
+          Ørjan Svendsgård er grunnleggeren av GENIAL! Marketing og har over ti år bak seg med sosiale medier — både foran og bak kameraet. Han vet hva som engasjerer, hva som konverterer, og ikke minst hva som ikke fungerer.
+        </p>
+        <p style="color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.8; margin-bottom: 1rem;">
+          Han flyttet fra Ørnes i Nord-Norge til Bergen for fem år siden, og så raskt at mange lokale bedrifter — barbershoper, restauranter, klinikker, håndverkere — hadde et godt tilbud, men ble usynlige på nett. Det ønsket han å gjøre noe med.
+        </p>
+        <p style="color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.8; margin-bottom: 1rem;">
+          Med GENIAL! Marketing bringer han den erfaringen direkte til bedrifter som ønsker å vokse digitalt. Han jobber tett med hver kunde, holder seg unna fagsjargong og leverer løsninger som faktisk monner.
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" style="background: var(--navy-2); border-top: 1px solid var(--border); padding: 6rem 2rem;">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <div style="text-align:center; margin-bottom: 3rem;">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title">Vanlige spørsmål</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1px; background:var(--border); border-radius:16px; overflow:hidden;">
+
+        <div class="faq-item" style="background:var(--navy-3); padding:1.75rem 2rem; cursor:pointer;" onclick="toggleFaq(this)">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700;">Hvor lang er bindingstiden?</h4>
+            <span class="faq-icon" style="color:var(--accent); font-size:1.3rem; flex-shrink:0; transition:transform 0.3s;">+</span>
+          </div>
+          <p class="faq-answer" style="display:none; color:var(--muted); font-size:0.92rem; font-weight:300; line-height:1.75; margin-top:1rem;">Ingen. Vi jobber måned til måned — du bestemmer selv om du vil fortsette. Vi tror på at gode resultater er den eneste grunnen du trenger til å bli.</p>
+        </div>
+
+        <div class="faq-item" style="background:var(--navy-3); padding:1.75rem 2rem; cursor:pointer;" onclick="toggleFaq(this)">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700;">Hva forventes av meg som kunde?</h4>
+            <span class="faq-icon" style="color:var(--accent); font-size:1.3rem; flex-shrink:0; transition:transform 0.3s;">+</span>
+          </div>
+          <p class="faq-answer" style="display:none; color:var(--muted); font-size:0.92rem; font-weight:300; line-height:1.75; margin-top:1rem;">Veldig lite. Vi tar oss av det meste — du trenger kun å godkjenne innhold før det publiseres. Vi setter opp en enkel og rask prosess for dette slik at det ikke tar mer enn noen minutter av dagen din.</p>
+        </div>
+
+        <div class="faq-item" style="background:var(--navy-3); padding:1.75rem 2rem; cursor:pointer;" onclick="toggleFaq(this)">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700;">Når kan jeg forvente å se resultater?</h4>
+            <span class="faq-icon" style="color:var(--accent); font-size:1.3rem; flex-shrink:0; transition:transform 0.3s;">+</span>
+          </div>
+          <p class="faq-answer" style="display:none; color:var(--muted); font-size:0.92rem; font-weight:300; line-height:1.75; margin-top:1rem;">Det kommer an på tjenesten. Med betalte annonser (Google Ads, Meta) ser de fleste resultater innen 2–4 uker. SEO og organisk vekst tar lenger tid — typisk 1–3 måneder — men gir mer varige resultater. Vi er alltid tydelige på hva du kan forvente fra hvilken tjeneste.</p>
+        </div>
+
+        <div class="faq-item" style="background:var(--navy-3); padding:1.75rem 2rem; cursor:pointer;" onclick="toggleFaq(this)">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700;">Jobber dere kun med bedrifter i Bergen?</h4>
+            <span class="faq-icon" style="color:var(--accent); font-size:1.3rem; flex-shrink:0; transition:transform 0.3s;">+</span>
+          </div>
+          <p class="faq-answer" style="display:none; color:var(--muted); font-size:0.92rem; font-weight:300; line-height:1.75; margin-top:1rem;">Nei, vi jobber med bedrifter over hele Norge digitalt. Men vi har et spesielt fokus på lokale bedrifter i Bergen-området som ønsker å styrke sin synlighet i nærmarkedet.</p>
+        </div>
+
+        <div class="faq-item" style="background:var(--navy-3); padding:1.75rem 2rem; cursor:pointer;" onclick="toggleFaq(this)">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+            <h4 style="font-family:var(--font-display); font-size:1rem; font-weight:700;">Hva skjer hvis jeg ikke er fornøyd?</h4>
+            <span class="faq-icon" style="color:var(--accent); font-size:1.3rem; flex-shrink:0; transition:transform 0.3s;">+</span>
+          </div>
+          <p class="faq-answer" style="display:none; color:var(--muted); font-size:0.92rem; font-weight:300; line-height:1.75; margin-top:1rem;">Vi tar alltid en åpen dialog hvis noe ikke føles riktig. Siden det ikke er noen binding kan du avslutte når som helst — men vi jobber aktivt for at du skal ønske å bli.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div id="kontakt" style="background: var(--navy-2); border-top: 1px solid var(--border); padding: 6rem 2rem;">
+    <div style="max-width: 620px; margin: 0 auto;">
+      <div style="text-align:center; margin-bottom: 3rem;">
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(232,240,74,0.06); border:1px solid rgba(232,240,74,0.15); border-radius:40px; padding:6px 16px; margin-bottom:1.25rem;">
+          <span style="display:inline-block; width:7px; height:7px; background:var(--accent); border-radius:50%; animation: pulse 2s infinite;"></span>
+          <span style="font-size:0.78rem; color:var(--accent); font-weight:500; letter-spacing:0.04em;">8 ledige plasser</span>
+        </div>
+        <div class="section-tag">Kontakt</div>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.05;">
+          Klar til å vokse<br><span style="color: var(--accent);">digitalt?</span>
+        </h2>
+      </div>
+
+      <div style="background: var(--navy-3); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem;">
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="display:block; font-size:0.75rem; color:var(--muted); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:500;">Navn *</label>
+            <input id="f-name" type="text" placeholder="Ola Nordmann" style="width:100%; background:var(--navy-2); border:1px solid var(--border); border-radius:8px; padding:0.85rem 1rem; color:var(--white); font-family:var(--font-body); font-size:0.95rem; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(232,240,74,0.45)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.75rem; color:var(--muted); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:500;">E-post *</label>
+            <input id="f-email" type="email" placeholder="ola@bedrift.no" style="width:100%; background:var(--navy-2); border:1px solid var(--border); border-radius:8px; padding:0.85rem 1rem; color:var(--white); font-family:var(--font-body); font-size:0.95rem; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(232,240,74,0.45)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+        </div>
+
+        <div style="margin-bottom:1rem;">
+          <label style="display:block; font-size:0.75rem; color:var(--muted); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:500;">Telefon</label>
+          <input id="f-tel" type="tel" placeholder="+47 000 00 000" style="width:100%; background:var(--navy-2); border:1px solid var(--border); border-radius:8px; padding:0.85rem 1rem; color:var(--white); font-family:var(--font-body); font-size:0.95rem; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(232,240,74,0.45)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+        </div>
+
+        <div style="margin-bottom:1.75rem;">
+          <label style="display:block; font-size:0.75rem; color:var(--muted); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:500;">Hva er du ute etter? *</label>
+          <textarea id="f-msg" rows="5" placeholder="Fortell oss kort om bedriften din og hva du ønsker å oppnå — f.eks. ny nettside, bedre Google-synlighet, hjelp med sosiale medier, eller noe annet." style="width:100%; background:var(--navy-2); border:1px solid var(--border); border-radius:8px; padding:0.85rem 1rem; color:var(--white); font-family:var(--font-body); font-size:0.95rem; outline:none; resize:vertical; transition:border-color 0.2s; line-height:1.65;" onfocus="this.style.borderColor='rgba(232,240,74,0.45)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'"></textarea>
+        </div>
+
+        <button id="submit-btn" onclick="sendForm()" style="width:100%; background:var(--accent); color:var(--navy); border:none; padding:1rem; border-radius:8px; font-family:var(--font-body); font-size:1rem; font-weight:600; cursor:pointer; transition:background 0.2s, transform 0.15s; letter-spacing:0.01em;">
+          Send melding →
+        </button>
+
+
+
+        <div id="form-success" style="display:none; text-align:center; margin-top:1.5rem; padding:1.25rem; background:rgba(232,240,74,0.07); border:1px solid rgba(232,240,74,0.18); border-radius:10px;">
+          <p style="color:var(--accent); font-weight:500; font-size:1rem;">✓ Takk! Vi tar kontakt innen én virkedag.</p>
+        </div>
+        <div id="form-error" style="display:none; text-align:center; margin-top:1.5rem; padding:1rem; background:rgba(226,75,74,0.07); border:1px solid rgba(226,75,74,0.2); border-radius:10px;">
+          <p style="color:#e24b4a; font-size:0.9rem;">Vennligst fyll ut navn, e-post og melding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function sendForm() {
+      var name = document.getElementById('f-name').value.trim();
+      var email = document.getElementById('f-email').value.trim();
+      var msg = document.getElementById('f-msg').value.trim();
+      document.getElementById('form-error').style.display = 'none';
+      if (!name || !email || !msg) {
+        document.getElementById('form-error').style.display = 'block';
+        return;
+      }
+      document.getElementById('submit-btn').textContent = 'Sender...';
+      document.getElementById('submit-btn').disabled = true;
+      setTimeout(function() {
+        document.getElementById('form-success').style.display = 'block';
+        document.getElementById('submit-btn').style.display = 'none';
+      }, 800);
+    }
+    document.getElementById('submit-btn').addEventListener('mouseover', function(){ this.style.background='var(--accent-dim)'; this.style.transform='translateY(-1px)'; });
+    document.getElementById('submit-btn').addEventListener('mouseout', function(){ this.style.background='var(--accent)'; this.style.transform='none'; });
+
+    function toggleFaq(el) {
+      var answer = el.querySelector('.faq-answer');
+      var icon = el.querySelector('.faq-icon');
+      var isOpen = answer.style.display === 'block';
+      answer.style.display = isOpen ? 'none' : 'block';
+      icon.textContent = isOpen ? '+' : '×';
+      icon.style.transform = isOpen ? 'none' : 'rotate(0deg)';
+    }
+  </script>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GENIAL<span>!</span> Marketing</div>
+    <p>© 2026 GENIAL! Marketing. Alle rettigheter forbeholdt.</p>
+    <div class="footer-links">
+      <a href="#tjenester">Tjenester</a>
+      <a href="#prosess">Prosess</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="https://www.instagram.com/genialmarketing.no/" target="_blank" style="display:inline-flex; align-items:center; gap:6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
