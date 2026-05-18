@@ -12,6 +12,7 @@
   <link rel="canonical" href="https://genialmarketing.no" />
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lec9_AsAAAAAKng3E7E3dRCGUoyDpt83hcZk2ve"></script>
 
   <!-- Open Graph (sosiale medier) -->
   <meta property="og:type" content="website" />
@@ -959,10 +960,11 @@
       btn.textContent = 'Sender...';
       btn.disabled = true;
       try {
+        const token = await grecaptcha.execute('6Lec9_AsAAAAAKng3E7E3dRCGUoyDpt83hcZk2ve', {action: 'contact'});
         var response = await fetch('https://formspree.io/f/mnjwevyq', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ navn: name, epost: email, telefon: tel, melding: msg })
+          body: JSON.stringify({ navn: name, epost: email, telefon: tel, melding: msg, 'g-recaptcha-response': token })
         });
         if (response.ok) {
           document.getElementById('form-success').style.display = 'block';
