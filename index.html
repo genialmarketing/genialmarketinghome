@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GENIAL! Marketing – Digital markedsføring uten binding</title>
-  <meta name="description" content="GENIAL! Marketing hjelper bedrifter i hele Norge med nettside, Google SEO, annonsering og sosiale medier. Ingen binding. Du snakker alltid med Ørjan." />
+  <meta name="description" content="GENIAL! Marketing hjelper bedrifter i hele Norge med nettside, Google SEO, annonsering og sosiale medier. Ingen binding." />
   <meta name="author" content="Ørjan Svendsgård – GENIAL! Marketing" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://genialmarketing.no/" />
@@ -13,14 +13,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://genialmarketing.no/" />
   <meta property="og:title" content="GENIAL! Marketing – Digital markedsføring uten binding" />
-  <meta property="og:description" content="Vi tar hånd om hele din digitale tilstedeværelse. Ingen binding, ingen callcenter. Du snakker alltid med Ørjan." />
+  <meta property="og:description" content="Vi tar hånd om hele din digitale tilstedeværelse. Ingen binding." />
   <meta property="og:image" content="https://genialmarketing.no/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="nb_NO" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="GENIAL! Marketing – Digital markedsføring uten binding" />
-  <meta name="twitter:description" content="Nettside, Google SEO, annonsering og sosiale medier. Ingen binding. Du snakker alltid med Ørjan." />
+  <meta name="twitter:description" content="Nettside, Google SEO, annonsering og sosiale medier. Ingen binding." />
   <meta name="twitter:image" content="https://genialmarketing.no/og.jpg" />
   <meta name="theme-color" content="#3d7b5f" />
   <meta name="geo.region" content="NO-46" />
@@ -91,7 +91,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -107,14 +107,13 @@
       --muted:    #6e6259;
       --border:   #ddd6c9;
       --shadow:   0 2px 12px rgba(0,0,0,0.06);
-      --shadow-lg:0 8px 30px rgba(0,0,0,0.08);
       --radius:   12px;
       --font:     'Inter', system-ui, sans-serif;
       --mono:     'JetBrains Mono', 'Consolas', monospace;
       --ease:     0.25s cubic-bezier(0.4,0,0.2,1);
     }
 
-    html { -webkit-text-size-adjust: 100%; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
     img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -125,8 +124,7 @@
     #nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(250,248,244,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
@@ -138,11 +136,11 @@
     .nav-logo span { color: var(--green); }
     .nav-links { display: flex; gap: 2px; list-style: none; }
     .nav-link {
-      font-size: 0.84rem; font-weight: 500; color: var(--muted);
-      padding: 6px 14px; border-radius: 8px; transition: all var(--ease); cursor: pointer;
+      font-size: 0.84rem; font-weight: 400; color: var(--muted);
+      padding: 6px 14px; border-radius: 8px; transition: all var(--ease);
     }
     .nav-link:hover { color: var(--text); background: var(--surface); }
-    .nav-link.active { color: var(--green); font-weight: 600; }
+    .nav-link.active { color: var(--green); font-weight: 700; }
     .nav-right { display: flex; align-items: center; gap: 8px; }
     .lang-btn {
       font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
@@ -159,16 +157,28 @@
       background: var(--bg); flex-direction: column; align-items: center; justify-content: center; gap: 32px;
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu .nav-link { font-size: 1.3rem; font-weight: 600; }
+    .mobile-menu .nav-link { font-size: 1.3rem; font-weight: 700; }
 
-    /* ── PAGES ── */
-    .page { display: none; min-height: calc(100vh - 60px); padding-top: 60px; }
-    .page.active { display: block; animation: pageIn 0.35s ease both; }
-    @keyframes pageIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    /* ── SECTIONS ── */
     .wrap { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+    .sec { padding: 80px 0; scroll-margin-top: 60px; }
+    .sec-alt { background: var(--surface); }
+    .sec-label {
+      font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--green);
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 12px;
+    }
+    .sec-sub { font-size: 0.98rem; color: var(--muted); max-width: 480px; }
+    .sec-header { margin-bottom: 48px; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── HERO ── */
-    .hero { padding: 100px 0 80px; }
+    #hjem { padding: 140px 0 80px; scroll-margin-top: 0; }
     .hero-label {
       font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
       letter-spacing: 2px; text-transform: uppercase; color: var(--green);
@@ -183,7 +193,7 @@
     .hero-cta {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--green); color: #fff;
-      font-size: 0.95rem; font-weight: 600; padding: 14px 28px; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 700; padding: 14px 28px; border-radius: 10px;
       transition: background var(--ease), transform var(--ease);
     }
     .hero-cta:hover { background: var(--green-h); transform: translateY(-1px); }
@@ -194,55 +204,7 @@
     .stat-num { font-family: var(--mono); font-size: 1.8rem; font-weight: 700; color: var(--green); line-height: 1; }
     .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
 
-    /* ── HOME SECTIONS ── */
-    .home-section { padding: 64px 0; border-top: 1px solid var(--border); }
-    .home-services { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
-    .hs-item {
-      padding: 24px; border: 1px solid var(--border); border-radius: var(--radius);
-      cursor: pointer; transition: border-color var(--ease), transform var(--ease);
-    }
-    .hs-item:hover { border-color: var(--green); transform: translateY(-2px); }
-    .hs-num { font-family: var(--mono); font-size: 0.7rem; color: var(--green); margin-bottom: 8px; }
-    .hs-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-    .hs-desc { font-size: 0.84rem; color: var(--muted); }
-    .home-process { display: flex; flex-direction: column; margin-top: 24px; }
-    .hp-step {
-      display: flex; gap: 20px; align-items: flex-start;
-      padding: 20px 0; border-bottom: 1px solid var(--border);
-    }
-    .hp-step:last-child { border-bottom: none; }
-    .hp-num { font-family: var(--mono); font-size: 0.85rem; font-weight: 700; color: var(--green); min-width: 28px; padding-top: 2px; }
-    .hp-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-    .hp-desc { font-size: 0.84rem; color: var(--muted); }
-    .home-bottom { padding: 64px 0; text-align: center; border-top: 1px solid var(--border); }
-    .home-bottom-text { font-size: 1.1rem; color: var(--muted); margin-bottom: 24px; }
-    .page-cta { padding: 48px 0; text-align: center; border-top: 1px solid var(--border); margin-top: 48px; }
-    .page-cta p { color: var(--muted); margin-bottom: 20px; font-size: 1rem; }
-    .faq-section { margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--border); }
-    .faq-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; }
-    .faq-a { font-size: 0.86rem; color: var(--muted); line-height: 1.7; }
-    .social-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.88rem; color: var(--green); margin-top: 20px;
-    }
-    .social-link:hover { text-decoration: underline; }
-    .social-link svg { width: 18px; height: 18px; }
-
     /* ── TJENESTER ── */
-    .services-page { padding: 80px 0; }
-    .page-header { margin-bottom: 56px; }
-    .page-label {
-      font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 2px; text-transform: uppercase; color: var(--green);
-      margin-bottom: 12px;
-    }
-    .page-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800; letter-spacing: -1px; line-height: 1.2;
-    }
-    .page-sub { font-size: 0.98rem; color: var(--muted); margin-top: 12px; max-width: 480px; }
     .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .s-card {
       background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
@@ -262,17 +224,25 @@
       border-top: 1px solid var(--border);
       display: flex; flex-direction: column; gap: 7px;
     }
-    .s-card-list li {
-      font-size: 0.82rem; color: var(--muted); padding-left: 16px; position: relative;
-    }
+    .s-card-list li { font-size: 0.82rem; color: var(--muted); padding-left: 16px; position: relative; }
     .s-card-list li::before {
       content: ''; position: absolute; left: 0; top: 7px;
       width: 5px; height: 5px; border-radius: 50%; background: var(--green);
     }
 
+    /* ── PROSESS ── */
+    .process-list { display: flex; flex-direction: column; }
+    .hp-step {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .hp-step:last-child { border-bottom: none; }
+    .hp-num { font-family: var(--mono); font-size: 0.85rem; font-weight: 700; color: var(--green); min-width: 28px; padding-top: 2px; }
+    .hp-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .hp-desc { font-size: 0.84rem; color: var(--muted); }
+
     /* ── OM ── */
-    .about-page { padding: 80px 0; }
-    .about-grid { display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; margin-top: 48px; }
+    .about-grid { display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; }
     .about-photo {
       width: 200px; height: 200px; border-radius: 50%; overflow: hidden;
       border: 3px solid var(--border); flex-shrink: 0;
@@ -287,25 +257,27 @@
     }
     .about-fact-num { font-family: var(--mono); font-size: 1.2rem; font-weight: 700; color: var(--green); }
     .about-fact-label { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+    .social-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.88rem; color: var(--green); margin-top: 20px;
+    }
+    .social-link:hover { text-decoration: underline; }
+    .social-link svg { width: 18px; height: 18px; }
 
     /* ── KONTAKT ── */
-    .contact-page { padding: 80px 0; }
-    .contact-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; margin-top: 48px; align-items: start; }
-    .contact-info p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 28px; }
+    .contact-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: start; }
     .contact-detail {
       display: flex; align-items: center; gap: 12px;
       padding: 12px 0; border-bottom: 1px solid var(--border);
     }
     .contact-detail:last-child { border-bottom: none; }
     .contact-detail-label { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    .contact-detail-value { font-size: 0.9rem; font-weight: 600; }
+    .contact-detail-value { font-size: 0.9rem; font-weight: 700; }
     .form-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; }
     .form-card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 24px; }
     .form-group { margin-bottom: 14px; }
     .form-group label { display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
+    .form-group input, .form-group textarea, .form-group select {
       width: 100%; background: var(--bg); border: 1.5px solid var(--border);
       border-radius: 8px; padding: 11px 14px;
       color: var(--text); font-family: var(--font); font-size: 0.9rem;
@@ -316,31 +288,33 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%236e6259' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; background-color: var(--bg);
     }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--green); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green); }
     .form-group textarea { resize: vertical; min-height: 90px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .form-submit {
       width: 100%; background: var(--green); color: #fff;
-      font-size: 0.92rem; font-weight: 600; padding: 13px;
+      font-size: 0.92rem; font-weight: 700; padding: 13px;
       border-radius: 8px; margin-top: 8px; transition: background var(--ease);
     }
     .form-submit:hover { background: var(--green-h); }
     .form-success {
       display: none; text-align: center; padding: 32px;
       background: var(--green-lt); border: 1px solid #a7d7b8;
-      border-radius: var(--radius); color: #1a4731; font-weight: 600;
+      border-radius: var(--radius); color: #1a4731; font-weight: 700;
     }
     .form-success.show { display: block; }
     .field-error { display: block; font-size: 0.72rem; color: #b91c1c; margin-top: 4px; }
     .form-note { font-size: 0.72rem; color: var(--muted); margin-top: 10px; text-align: center; }
 
+    /* ── FAQ ── */
+    .faq-section { margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--border); }
+    .faq-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+    .faq-a { font-size: 0.86rem; color: var(--muted); line-height: 1.7; }
+
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border); padding: 32px 0;
-      font-size: 0.8rem; color: var(--muted);
-    }
+    footer { border-top: 1px solid var(--border); padding: 32px 0; font-size: 0.8rem; color: var(--muted); }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
     .footer-brand { font-family: var(--mono); font-size: 0.78rem; }
     .footer-brand span { font-weight: 700; }
@@ -353,7 +327,8 @@
     :focus-visible { outline: 2.5px solid var(--green); outline-offset: 3px; border-radius: 4px; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-      .page.active { animation: none; }
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; }
     }
 
     /* ── Responsive ── */
@@ -361,44 +336,42 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .hero-stats { flex-wrap: wrap; gap: 24px; }
-      .home-services { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; text-align: center; }
       .about-photo { margin: 0 auto; }
       .about-facts { justify-content: center; }
       .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
+<nav id="nav" role="navigation" aria-label="Hovednavigasjon">
   <div class="nav-inner">
-    <a class="nav-logo" onclick="showPage('hjem')" style="cursor:pointer;">GENIAL<span>!</span></a>
+    <a href="#hjem" class="nav-logo">GENIAL<span>!</span></a>
     <ul class="nav-links">
-      <li><a class="nav-link active" data-page="hjem" onclick="showPage('hjem')" data-i18n="nav_hjem">Hjem</a></li>
-      <li><a class="nav-link" data-page="tjenester" onclick="showPage('tjenester')" data-i18n="nav_tjenester">Tjenester</a></li>
-      <li><a class="nav-link" data-page="om" onclick="showPage('om')" data-i18n="nav_om">Om</a></li>
-      <li><a class="nav-link" data-page="kontakt" onclick="showPage('kontakt')" data-i18n="nav_kontakt">Kontakt</a></li>
+      <li><a href="#hjem" class="nav-link active" data-i18n="nav_hjem">Hjem</a></li>
+      <li><a href="#tjenester" class="nav-link" data-i18n="nav_tjenester">Tjenester</a></li>
+      <li><a href="#om" class="nav-link" data-i18n="nav_om">Om</a></li>
+      <li><a href="#kontakt" class="nav-link" data-i18n="nav_kontakt">Kontakt</a></li>
     </ul>
     <div class="nav-right">
       <button class="lang-btn active" id="btn-no" onclick="setLang('no')">NO</button>
       <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Meny">
+    <button class="hamburger" id="hamburger" aria-label="Meny" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobile-menu">
-  <a class="nav-link" onclick="showPage('hjem');closeMobile()" data-i18n="nav_hjem">Hjem</a>
-  <a class="nav-link" onclick="showPage('tjenester');closeMobile()" data-i18n="nav_tjenester">Tjenester</a>
-  <a class="nav-link" onclick="showPage('om');closeMobile()" data-i18n="nav_om">Om</a>
-  <a class="nav-link" onclick="showPage('kontakt');closeMobile()" data-i18n="nav_kontakt">Kontakt</a>
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+  <a href="#hjem" class="nav-link" onclick="closeMobile()" data-i18n="nav_hjem">Hjem</a>
+  <a href="#tjenester" class="nav-link" onclick="closeMobile()" data-i18n="nav_tjenester">Tjenester</a>
+  <a href="#om" class="nav-link" onclick="closeMobile()" data-i18n="nav_om">Om</a>
+  <a href="#kontakt" class="nav-link" onclick="closeMobile()" data-i18n="nav_kontakt">Kontakt</a>
   <div style="display:flex;gap:8px;margin-top:12px;">
     <button class="lang-btn active" id="mob-btn-no" onclick="setLang('no')">NO</button>
     <button class="lang-btn" id="mob-btn-en" onclick="setLang('en')">EN</button>
@@ -408,295 +381,230 @@
 <main>
 
 <!-- ═══ HJEM ═══ -->
-<section id="page-hjem" class="page active">
+<section id="hjem">
   <div class="wrap">
-    <div class="hero">
-      <div class="hero-label" data-i18n="hero_label">// genial! marketing</div>
-      <h1 class="hero-h1" data-i18n="hero_h1">Nettside. Google. Annonser. Sosiale medier.</h1>
-      <p class="hero-sub" data-i18n="hero_sub">Fire ting de fleste bedrifter trenger på nett. Ørjan tar seg av det. Du har nok å gjøre fra før.</p>
-      <a class="hero-cta" onclick="showPage('kontakt')" style="cursor:pointer;" data-i18n="hero_cta">Ta kontakt →</a>
-      <div class="hero-stats">
-        <div><div class="stat-num">10+</div><div class="stat-label" data-i18n="stat1">år erfaring</div></div>
-        <div><div class="stat-num">0</div><div class="stat-label" data-i18n="stat2">mnd binding</div></div>
-        <div><div class="stat-num">1</div><div class="stat-label" data-i18n="stat3">virkedag svar</div></div>
-        <div><div class="stat-num">1</div><div class="stat-label" data-i18n="stat4">kontaktperson</div></div>
-      </div>
-    </div>
-
-    <div class="home-section">
-      <div class="page-label" data-i18n="hs_label">// hva vi gjør</div>
-      <div class="home-services">
-        <div class="hs-item" onclick="showPage('tjenester')" style="cursor:pointer;">
-          <div class="hs-num">01</div>
-          <div class="hs-title" data-i18n="hs1_t">Nettside</div>
-          <div class="hs-desc" data-i18n="hs1_d">Rask, mobilvennlig, klar for Google.</div>
-        </div>
-        <div class="hs-item" onclick="showPage('tjenester')" style="cursor:pointer;">
-          <div class="hs-num">02</div>
-          <div class="hs-title" data-i18n="hs2_t">Google SEO</div>
-          <div class="hs-desc" data-i18n="hs2_d">Synlig i søkeresultatene over tid.</div>
-        </div>
-        <div class="hs-item" onclick="showPage('tjenester')" style="cursor:pointer;">
-          <div class="hs-num">03</div>
-          <div class="hs-title" data-i18n="hs3_t">Google Ads og Meta</div>
-          <div class="hs-desc" data-i18n="hs3_d">Betalt annonsering med tydelig rapportering.</div>
-        </div>
-        <div class="hs-item" onclick="showPage('tjenester')" style="cursor:pointer;">
-          <div class="hs-num">04</div>
-          <div class="hs-title" data-i18n="hs4_t">Sosiale medier</div>
-          <div class="hs-desc" data-i18n="hs4_d">Vi lager og publiserer. Du godkjenner.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="home-section">
-      <div class="page-label" data-i18n="hp_label">// slik funker det</div>
-      <div class="home-process">
-        <div class="hp-step">
-          <div class="hp-num">1</div>
-          <div>
-            <div class="hp-title" data-i18n="hp1_t">Du tar kontakt</div>
-            <div class="hp-desc" data-i18n="hp1_d">Skriv hva bedriften driver med. Vi svarer innen en virkedag.</div>
-          </div>
-        </div>
-        <div class="hp-step">
-          <div class="hp-num">2</div>
-          <div>
-            <div class="hp-title" data-i18n="hp2_t">Vi snakker sammen</div>
-            <div class="hp-desc" data-i18n="hp2_d">Uforpliktende. Vi finner ut om det passer.</div>
-          </div>
-        </div>
-        <div class="hp-step">
-          <div class="hp-num">3</div>
-          <div>
-            <div class="hp-title" data-i18n="hp3_t">Du får et forslag</div>
-            <div class="hp-desc" data-i18n="hp3_d">Med pris og plan. Du bestemmer.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="home-bottom">
-      <p class="home-bottom-text" data-i18n="hb_text">Lurer du på om vi kan hjelpe? Det koster ingenting å spørre.</p>
-      <a class="hero-cta" onclick="showPage('kontakt')" style="cursor:pointer;" data-i18n="hb_cta">Send en melding →</a>
-    </div>
+    <div class="hero-label" data-i18n="hero_label">// genial! marketing</div>
+    <h1 class="hero-h1" data-i18n="hero_h1">Nettside. Google. Annonser. Sosiale medier.</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Fire ting de fleste bedrifter trenger på nett. Vi tar oss av det. Du har nok å gjøre fra før.</p>
+    <a href="#kontakt" class="hero-cta" data-i18n="hero_cta">Ta kontakt →</a>
   </div>
 </section>
 
 <!-- ═══ TJENESTER ═══ -->
-<section id="page-tjenester" class="page">
+<section id="tjenester" class="sec sec-alt" aria-labelledby="tjenester-heading">
   <div class="wrap">
-    <div class="services-page">
-      <div class="page-header">
-        <div class="page-label" data-i18n="s_label">// tjenester</div>
-        <h2 class="page-title" data-i18n="s_title">Fire ting vi gjør. Ingenting mer.</h2>
-        <p class="page-sub" data-i18n="s_sub">Det meste bedrifter trenger på nett. Samlet på ett sted.</p>
+    <div class="sec-header reveal">
+      <div class="sec-label" data-i18n="s_label">// tjenester</div>
+      <h2 class="sec-title" id="tjenester-heading" data-i18n="s_title">Dette gjør vi.</h2>
+    </div>
+    <div class="services-grid">
+      <article class="s-card reveal">
+        <div class="s-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+
+        <h3 class="s-card-title" data-i18n="s1_t">Nettside</h3>
+        <p class="s-card-desc" data-i18n="s1_d">Vi bygger nettsider fra bunnen av. Ingen maler. Hver side er tilpasset bedriften din, optimalisert for hastighet og mobil.</p>
+        <ul class="s-card-list">
+          <li data-i18n="s1_l1">Design og utvikling</li>
+          <li data-i18n="s1_l2">Mobiltilpasset</li>
+          <li data-i18n="s1_l3">SEO-grunnoppsett</li>
+          <li data-i18n="s1_l4">Du eier alt vi lager</li>
+        </ul>
+      </article>
+      <article class="s-card reveal">
+        <div class="s-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+
+        <h3 class="s-card-title" data-i18n="s2_t">Google SEO</h3>
+        <p class="s-card-desc" data-i18n="s2_d">Vi gjør bedriften din synlig i Google. Teknisk optimalisering, innhold som treffer søkeordene kundene dine bruker, og oppfølging over tid.</p>
+        <ul class="s-card-list">
+          <li data-i18n="s2_l1">Søkeordanalyse</li>
+          <li data-i18n="s2_l2">Teknisk optimalisering</li>
+          <li data-i18n="s2_l3">Innholdsstrategi</li>
+          <li data-i18n="s2_l4">Månedlig rapport</li>
+        </ul>
+      </article>
+      <article class="s-card reveal">
+        <div class="s-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+
+        <h3 class="s-card-title" data-i18n="s3_t">Google Ads og Meta</h3>
+        <p class="s-card-desc" data-i18n="s3_d">Vi setter opp og styrer annonsene dine på Google og Meta. Du får en rapport som viser hva du har brukt og hva du har fått igjen.</p>
+        <ul class="s-card-list">
+          <li data-i18n="s3_l1">Kampanjeoppsett</li>
+          <li data-i18n="s3_l2">Løpende optimalisering</li>
+          <li data-i18n="s3_l3">Målgruppestyring</li>
+          <li data-i18n="s3_l4">Tydelig rapportering</li>
+        </ul>
+      </article>
+      <article class="s-card reveal">
+        <div class="s-card-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+
+        <h3 class="s-card-title" data-i18n="s4_t">Sosiale medier</h3>
+        <p class="s-card-desc" data-i18n="s4_d">Vi tar over sosiale medier for deg. Innholdsproduksjon, planlegging, publisering. Du godkjenner alt før det går ut.</p>
+        <ul class="s-card-list">
+          <li data-i18n="s4_l1">Innholdsproduksjon</li>
+          <li data-i18n="s4_l2">Publiseringsplan</li>
+          <li data-i18n="s4_l3">Profiladministrasjon</li>
+          <li data-i18n="s4_l4">Månedlig oppsummering</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROSESS ═══ -->
+<section id="prosess" class="sec" aria-labelledby="prosess-heading">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="sec-label" data-i18n="hp_label">// slik funker det</div>
+      <h2 class="sec-title" id="prosess-heading" data-i18n="hp_title">Slik kommer vi i gang.</h2>
+    </div>
+    <div class="process-list">
+      <div class="hp-step reveal">
+        <div class="hp-num">1</div>
+        <div>
+          <div class="hp-title" data-i18n="hp1_t">Du tar kontakt</div>
+          <div class="hp-desc" data-i18n="hp1_d">Skriv hva bedriften driver med. Vi svarer innen en virkedag.</div>
+        </div>
       </div>
-      <div class="services-grid">
-        <div class="s-card">
-          <div class="s-card-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <div class="s-card-label">01</div>
-          <h3 class="s-card-title" data-i18n="s1_t">Nettside</h3>
-          <p class="s-card-desc" data-i18n="s1_d">Vi bygger nettsider fra bunnen av. Ingen maler. Hver side er tilpasset bedriften din, optimalisert for hastighet og mobil.</p>
-          <ul class="s-card-list">
-            <li data-i18n="s1_l1">Design og utvikling</li>
-            <li data-i18n="s1_l2">Mobiltilpasset</li>
-            <li data-i18n="s1_l3">SEO-grunnoppsett</li>
-            <li data-i18n="s1_l4">Du eier alt vi lager</li>
-          </ul>
-        </div>
-        <div class="s-card">
-          <div class="s-card-icon">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <div class="s-card-label">02</div>
-          <h3 class="s-card-title" data-i18n="s2_t">Google SEO</h3>
-          <p class="s-card-desc" data-i18n="s2_d">Vi gjør bedriften din synlig i Google. Teknisk optimalisering, innhold som treffer søkeordene kundene dine bruker, og oppfølging over tid.</p>
-          <ul class="s-card-list">
-            <li data-i18n="s2_l1">Søkeordanalyse</li>
-            <li data-i18n="s2_l2">Teknisk optimalisering</li>
-            <li data-i18n="s2_l3">Innholdsstrategi</li>
-            <li data-i18n="s2_l4">Månedlig rapport</li>
-          </ul>
-        </div>
-        <div class="s-card">
-          <div class="s-card-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          </div>
-          <div class="s-card-label">03</div>
-          <h3 class="s-card-title" data-i18n="s3_t">Google Ads og Meta</h3>
-          <p class="s-card-desc" data-i18n="s3_d">Vi setter opp og styrer annonsene dine på Google og Meta. Du får en rapport som viser hva du har brukt og hva du har fått igjen.</p>
-          <ul class="s-card-list">
-            <li data-i18n="s3_l1">Kampanjeoppsett</li>
-            <li data-i18n="s3_l2">Løpende optimalisering</li>
-            <li data-i18n="s3_l3">Målgruppestyring</li>
-            <li data-i18n="s3_l4">Tydelig rapportering</li>
-          </ul>
-        </div>
-        <div class="s-card">
-          <div class="s-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div class="s-card-label">04</div>
-          <h3 class="s-card-title" data-i18n="s4_t">Sosiale medier</h3>
-          <p class="s-card-desc" data-i18n="s4_d">Vi tar over sosiale medier for deg. Innholdsproduksjon, planlegging, publisering. Du godkjenner alt før det går ut.</p>
-          <ul class="s-card-list">
-            <li data-i18n="s4_l1">Innholdsproduksjon</li>
-            <li data-i18n="s4_l2">Publiseringsplan</li>
-            <li data-i18n="s4_l3">Profiladministrasjon</li>
-            <li data-i18n="s4_l4">Månedlig oppsummering</li>
-          </ul>
+      <div class="hp-step reveal">
+        <div class="hp-num">2</div>
+        <div>
+          <div class="hp-title" data-i18n="hp2_t">Vi snakker sammen</div>
+          <div class="hp-desc" data-i18n="hp2_d">Uforpliktende. Vi finner ut om det passer.</div>
         </div>
       </div>
-      <div class="page-cta">
-        <p data-i18n="s_cta_p">Usikker på hva du trenger? Vi finner ut av det sammen.</p>
-        <a class="hero-cta" onclick="showPage('kontakt')" style="cursor:pointer;" data-i18n="s_cta">Ta kontakt →</a>
+      <div class="hp-step reveal">
+        <div class="hp-num">3</div>
+        <div>
+          <div class="hp-title" data-i18n="hp3_t">Du får et forslag</div>
+          <div class="hp-desc" data-i18n="hp3_d">Med pris og plan. Du bestemmer.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ OM ═══ -->
-<section id="page-om" class="page">
+<section id="om" class="sec sec-alt" aria-labelledby="om-heading">
   <div class="wrap">
-    <div class="about-page">
-      <div class="page-header">
-        <div class="page-label" data-i18n="a_label">// om</div>
-        <h2 class="page-title" data-i18n="a_title">Hvem er Ørjan?</h2>
+    <div class="sec-header reveal">
+      <div class="sec-label" data-i18n="a_label">// om</div>
+      <h2 class="sec-title" id="om-heading" data-i18n="a_title">Om oss</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-photo">
+        <img src="orjan.png" alt="Ørjan Svendsgård, grunnlegger av GENIAL! Marketing i Bergen"
+          width="200" height="200" loading="lazy"
+          onerror="this.style.background='var(--surface)';this.removeAttribute('src')" />
       </div>
-      <div class="about-grid">
-        <div class="about-photo">
-          <img src="orjan.png" alt="Ørjan Svendsgård, grunnlegger av GENIAL! Marketing i Bergen"
-            onerror="this.style.background='var(--surface)';this.removeAttribute('src')" />
+      <div>
+        <div class="about-name">Ørjan Svendsgård</div>
+        <div class="about-role" data-i18n="a_role">grunnlegger, GENIAL! Marketing</div>
+        <div class="about-text">
+          <p data-i18n="a_p1">Ti år med markedsføring for andre. Så startet vi GENIAL! fordi vi ville jobbe tettere med kundene våre.</p>
+          <p data-i18n="a_p2">Vi tar på oss noen få kunder om gangen. Da har vi faktisk tid til å sette oss inn i bedriften din.</p>
+          <p data-i18n="a_p3">Vi jobber med bedrifter i alle størrelser og bransjer. Felles for de fleste er at de vet de burde gjort mer på nett, men ikke har tid til å gjøre det selv.</p>
         </div>
-        <div>
-          <div class="about-name">Ørjan Svendsgård</div>
-          <div class="about-role" data-i18n="a_role">grunnlegger, GENIAL! Marketing</div>
-          <div class="about-text">
-            <p data-i18n="a_p1">Ti år med markedsføring for andre. Så startet han sitt eget. GENIAL! ble til fordi Ørjan ville jobbe tettere med kundene sine.</p>
-            <p data-i18n="a_p2">Han tar på seg noen få kunder om gangen. Da har han faktisk tid til å sette seg inn i bedriften din.</p>
-            <p data-i18n="a_p3">Han jobber med bedrifter i alle størrelser og bransjer. Felles for de fleste er at de vet de burde gjort mer på nett, men ikke har tid til å gjøre det selv.</p>
-          </div>
-          <a href="https://www.instagram.com/genialmarketing.no/" target="_blank" rel="noopener noreferrer" class="social-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            <span>@genialmarketing.no</span>
-          </a>
-          <div class="about-facts">
-            <div>
-              <div class="about-fact-num">10+</div>
-              <div class="about-fact-label" data-i18n="af1">år erfaring</div>
-            </div>
-            <div>
-              <div class="about-fact-num">0</div>
-              <div class="about-fact-label" data-i18n="af2">mnd binding</div>
-            </div>
-            <div>
-              <div class="about-fact-num">1</div>
-              <div class="about-fact-label" data-i18n="af3">kontaktperson</div>
-            </div>
-          </div>
-        </div>
+        <a href="https://www.instagram.com/genialmarketing.no/" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>@genialmarketing.no</span>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ KONTAKT ═══ -->
-<section id="page-kontakt" class="page">
+<section id="kontakt" class="sec" aria-labelledby="kontakt-heading">
   <div class="wrap">
-    <div class="contact-page">
-      <div class="page-header">
-        <div class="page-label" data-i18n="c_label">// kontakt</div>
-        <h2 class="page-title" data-i18n="c_title">Si hei.</h2>
-      </div>
-      <div class="contact-grid">
-        <div>
-          <p data-i18n="c_p">Fortell oss om bedriften din. Vi tar kontakt innen en virkedag.</p>
-          <div class="contact-detail">
-            <div>
-              <div class="contact-detail-label" data-i18n="c_email_l">e-post</div>
-              <div class="contact-detail-value"><a href="mailto:orjan@genialmarketing.no" style="color:var(--green);">orjan@genialmarketing.no</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div>
-              <div class="contact-detail-label" data-i18n="c_loc_l">lokasjon</div>
-              <div class="contact-detail-value" data-i18n="c_loc_v">Bergen, Norge</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div>
-              <div class="contact-detail-label" data-i18n="c_resp_l">responstid</div>
-              <div class="contact-detail-value" data-i18n="c_resp_v">innen 1 virkedag</div>
-            </div>
+    <div class="sec-header reveal">
+      <div class="sec-label" data-i18n="c_label">// kontakt</div>
+      <h2 class="sec-title" id="kontakt-heading" data-i18n="c_title">Si hei.</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;margin-bottom:28px;" data-i18n="c_p">Fortell oss om bedriften din. Vi tar kontakt innen en virkedag.</p>
+        <div class="contact-detail">
+          <div>
+            <div class="contact-detail-label" data-i18n="c_email_l">e-post</div>
+            <div class="contact-detail-value"><a href="mailto:orjan@genialmarketing.no" style="color:var(--green);">orjan@genialmarketing.no</a></div>
           </div>
         </div>
-        <div>
-          <div class="form-card">
-            <div class="form-card-title" data-i18n="f_title">Send en melding</div>
-            <div id="form-success" class="form-success" role="alert">
-              <span data-i18n="f_success">Takk! Vi tar kontakt innen en virkedag.</span>
-            </div>
-            <form id="contact-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="f-name" data-i18n="f_name">Navn</label>
-                  <input type="text" id="f-name" name="name" required placeholder="Ola Nordmann" />
-                  <span class="field-error" id="err-name" role="alert"></span>
-                </div>
-                <div class="form-group">
-                  <label for="f-email" data-i18n="f_email">E-post</label>
-                  <input type="email" id="f-email" name="email" required placeholder="ola@bedrift.no" />
-                  <span class="field-error" id="err-email" role="alert"></span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="f-service" data-i18n="f_service">Tjeneste</label>
-                <select id="f-service" name="service" required>
-                  <option value="" data-i18n="f_opt0">Velg...</option>
-                  <option value="nettside" data-i18n="f_opt1">Nettside</option>
-                  <option value="seo" data-i18n="f_opt2">Google SEO</option>
-                  <option value="ads" data-i18n="f_opt3">Google Ads / Meta</option>
-                  <option value="social" data-i18n="f_opt4">Sosiale medier</option>
-                  <option value="alt" data-i18n="f_opt5">Alt</option>
-                </select>
-                <span class="field-error" id="err-service" role="alert"></span>
-              </div>
-              <div class="form-group">
-                <label for="f-msg" data-i18n="f_msg">Melding</label>
-                <textarea id="f-msg" name="message" required placeholder="Fortell litt om bedriften din..."></textarea>
-                <span class="field-error" id="err-msg" role="alert"></span>
-              </div>
-              <div style="display:none" aria-hidden="true">
-                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-              </div>
-              <input type="hidden" name="_subject" value="Ny henvendelse – genialmarketing.no" />
-              <button type="submit" class="form-submit" data-i18n="f_submit">Send melding →</button>
-              <p class="form-note" data-i18n="f_note">Svar innen en virkedag. Ingen spam.</p>
-            </form>
+        <div class="contact-detail">
+          <div>
+            <div class="contact-detail-label" data-i18n="c_loc_l">lokasjon</div>
+            <div class="contact-detail-value" data-i18n="c_loc_v">Bergen, Norge</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div>
+            <div class="contact-detail-label" data-i18n="c_resp_l">responstid</div>
+            <div class="contact-detail-value" data-i18n="c_resp_v">innen 1 virkedag</div>
           </div>
         </div>
       </div>
-      <div class="faq-section">
-        <div class="page-label" data-i18n="faq_label">// vanlige spørsmål</div>
-        <div class="faq-item">
-          <div class="faq-q" data-i18n="faq1_q">Er den første samtalen gratis?</div>
-          <div class="faq-a" data-i18n="faq1_a">Ja. Alltid. Vi tar en prat, ser om det passer, og du bestemmer videre.</div>
+      <div class="reveal">
+        <div class="form-card">
+          <div class="form-card-title" data-i18n="f_title">Send en melding</div>
+          <div id="form-success" class="form-success" role="alert">
+            <span data-i18n="f_success">Takk! Vi tar kontakt innen en virkedag.</span>
+          </div>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name" data-i18n="f_name">Navn</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="Ola Nordmann" />
+                <span class="field-error" id="err-name" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="f-email" data-i18n="f_email">E-post</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" required placeholder="ola@bedrift.no" />
+                <span class="field-error" id="err-email" role="alert"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-service" data-i18n="f_service">Tjeneste</label>
+              <select id="f-service" name="service" required>
+                <option value="" data-i18n="f_opt0">Velg...</option>
+                <option value="nettside" data-i18n="f_opt1">Nettside</option>
+                <option value="seo" data-i18n="f_opt2">Google SEO</option>
+                <option value="ads" data-i18n="f_opt3">Google Ads / Meta</option>
+                <option value="social" data-i18n="f_opt4">Sosiale medier</option>
+                <option value="alt" data-i18n="f_opt5">Alt</option>
+              </select>
+              <span class="field-error" id="err-service" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="f-msg" data-i18n="f_msg">Melding</label>
+              <textarea id="f-msg" name="message" required placeholder="Fortell litt om bedriften din..."></textarea>
+              <span class="field-error" id="err-msg" role="alert"></span>
+            </div>
+            <div style="display:none" aria-hidden="true">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </div>
+            <input type="hidden" name="_subject" value="Ny henvendelse – genialmarketing.no" />
+            <button type="submit" class="form-submit" data-i18n="f_submit">Send melding →</button>
+            <p class="form-note" data-i18n="f_note">Svar innen en virkedag. Ingen spam.</p>
+          </form>
         </div>
-        <div class="faq-item">
-          <div class="faq-q" data-i18n="faq2_q">Er det noen binding?</div>
-          <div class="faq-a" data-i18n="faq2_a">Nei. Du fortsetter fordi det funker, ikke fordi du har skrevet under noe.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" data-i18n="faq3_q">Jobber du bare med bedrifter i Bergen?</div>
-          <div class="faq-a" data-i18n="faq3_a">Nei. Bransje og sted spiller ingen rolle. Det meste skjer digitalt uansett.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" data-i18n="faq4_q">Når ser jeg resultater?</div>
-          <div class="faq-a" data-i18n="faq4_a">Betalte annonser gir resultater innen 2–4 uker. SEO tar 1–3 måneder, men varer lenger.</div>
-        </div>
+      </div>
+    </div>
+    <div class="faq-section reveal">
+      <div class="sec-label" data-i18n="faq_label">// vanlige spørsmål</div>
+      <div class="faq-item">
+        <div class="faq-q" data-i18n="faq1_q">Er den første samtalen gratis?</div>
+        <div class="faq-a" data-i18n="faq1_a">Ja. Alltid. Vi tar en prat, ser om det passer, og du bestemmer videre.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-i18n="faq2_q">Er det noen binding?</div>
+        <div class="faq-a" data-i18n="faq2_a">Nei. Du fortsetter fordi det funker, ikke fordi du har skrevet under noe.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-i18n="faq3_q">Jobber du bare med bedrifter i Bergen?</div>
+        <div class="faq-a" data-i18n="faq3_a">Nei. Bransje og sted spiller ingen rolle. Det meste skjer digitalt uansett.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" data-i18n="faq4_q">Når ser jeg resultater?</div>
+        <div class="faq-a" data-i18n="faq4_a">Betalte annonser gir resultater innen 2–4 uker. SEO tar 1–3 måneder, men varer lenger.</div>
       </div>
     </div>
   </div>
@@ -704,7 +612,6 @@
 
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-inner">
@@ -729,21 +636,10 @@ const T = {
     nav_hjem:"Hjem", nav_tjenester:"Tjenester", nav_om:"Om", nav_kontakt:"Kontakt",
     hero_label:"// genial! marketing",
     hero_h1:"Nettside. Google. Annonser. Sosiale medier.",
-    hero_sub:"Fire ting de fleste bedrifter trenger på nett. Ørjan tar seg av det. Du har nok å gjøre fra før.",
+    hero_sub:"Fire ting de fleste bedrifter trenger på nett. Vi tar oss av det. Du har nok å gjøre fra før.",
     hero_cta:"Ta kontakt →",
     stat1:"år erfaring", stat2:"mnd binding", stat3:"virkedag svar", stat4:"kontaktperson",
-    hs_label:"// hva vi gjør",
-    hs1_t:"Nettside", hs1_d:"Rask, mobilvennlig, klar for Google.",
-    hs2_t:"Google SEO", hs2_d:"Synlig i søkeresultatene over tid.",
-    hs3_t:"Google Ads og Meta", hs3_d:"Betalt annonsering med tydelig rapportering.",
-    hs4_t:"Sosiale medier", hs4_d:"Vi lager og publiserer. Du godkjenner.",
-    hp_label:"// slik funker det",
-    hp1_t:"Du tar kontakt", hp1_d:"Skriv hva bedriften driver med. Vi svarer innen en virkedag.",
-    hp2_t:"Vi snakker sammen", hp2_d:"Uforpliktende. Vi finner ut om det passer.",
-    hp3_t:"Du får et forslag", hp3_d:"Med pris og plan. Du bestemmer.",
-    hb_text:"Lurer du på om vi kan hjelpe? Det koster ingenting å spørre.",
-    hb_cta:"Send en melding →",
-    s_label:"// tjenester", s_title:"Fire ting vi gjør. Ingenting mer.", s_sub:"Det meste bedrifter trenger på nett. Samlet på ett sted.",
+    s_label:"// tjenester", s_title:"Dette gjør vi.",
     s1_t:"Nettside", s1_d:"Vi bygger nettsider fra bunnen av. Ingen maler. Hver side er tilpasset bedriften din, optimalisert for hastighet og mobil.",
     s1_l1:"Design og utvikling", s1_l2:"Mobiltilpasset", s1_l3:"SEO-grunnoppsett", s1_l4:"Du eier alt vi lager",
     s2_t:"Google SEO", s2_d:"Vi gjør bedriften din synlig i Google. Teknisk optimalisering, innhold som treffer søkeordene kundene dine bruker, og oppfølging over tid.",
@@ -752,11 +648,14 @@ const T = {
     s3_l1:"Kampanjeoppsett", s3_l2:"Løpende optimalisering", s3_l3:"Målgruppestyring", s3_l4:"Tydelig rapportering",
     s4_t:"Sosiale medier", s4_d:"Vi tar over sosiale medier for deg. Innholdsproduksjon, planlegging, publisering. Du godkjenner alt før det går ut.",
     s4_l1:"Innholdsproduksjon", s4_l2:"Publiseringsplan", s4_l3:"Profiladministrasjon", s4_l4:"Månedlig oppsummering",
-    s_cta_p:"Usikker på hva du trenger? Vi finner ut av det sammen.", s_cta:"Ta kontakt →",
-    a_label:"// om", a_title:"Hvem er Ørjan?", a_role:"grunnlegger, GENIAL! Marketing",
-    a_p1:"Ti år med markedsføring for andre. Så startet han sitt eget. GENIAL! ble til fordi Ørjan ville jobbe tettere med kundene sine.",
-    a_p2:"Han tar på seg noen få kunder om gangen. Da har han faktisk tid til å sette seg inn i bedriften din.",
-    a_p3:"Han jobber med bedrifter i alle størrelser og bransjer. Felles for de fleste er at de vet de burde gjort mer på nett, men ikke har tid til å gjøre det selv.",
+    hp_label:"// slik funker det", hp_title:"Slik kommer vi i gang.",
+    hp1_t:"Du tar kontakt", hp1_d:"Skriv hva bedriften driver med. Vi svarer innen en virkedag.",
+    hp2_t:"Vi snakker sammen", hp2_d:"Uforpliktende. Vi finner ut om det passer.",
+    hp3_t:"Du får et forslag", hp3_d:"Med pris og plan. Du bestemmer.",
+    a_label:"// om", a_title:"Om oss", a_role:"grunnlegger, GENIAL! Marketing",
+    a_p1:"Ti år med markedsføring for andre. Så startet vi GENIAL! fordi vi ville jobbe tettere med kundene våre.",
+    a_p2:"Vi tar på oss noen få kunder om gangen. Da har vi faktisk tid til å sette oss inn i bedriften din.",
+    a_p3:"Vi jobber med bedrifter i alle størrelser og bransjer. Felles for de fleste er at de vet de burde gjort mer på nett, men ikke har tid til å gjøre det selv.",
     af1:"år erfaring", af2:"mnd binding", af3:"kontaktperson",
     faq_label:"// vanlige spørsmål",
     faq1_q:"Er den første samtalen gratis?", faq1_a:"Ja. Alltid. Vi tar en prat, ser om det passer, og du bestemmer videre.",
@@ -774,21 +673,10 @@ const T = {
     nav_hjem:"Home", nav_tjenester:"Services", nav_om:"About", nav_kontakt:"Contact",
     hero_label:"// genial! marketing",
     hero_h1:"Website. Google. Ads. Social media.",
-    hero_sub:"Four things most businesses need online. Ørjan handles it. You've got enough on your plate.",
+    hero_sub:"Four things most businesses need online. We handle it. You've got enough on your plate.",
     hero_cta:"Get in touch →",
     stat1:"years experience", stat2:"months contract", stat3:"business day reply", stat4:"point of contact",
-    hs_label:"// what we do",
-    hs1_t:"Website", hs1_d:"Fast, mobile-friendly, ready for Google.",
-    hs2_t:"Google SEO", hs2_d:"Visible in search results over time.",
-    hs3_t:"Google Ads and Meta", hs3_d:"Paid advertising with clear reporting.",
-    hs4_t:"Social media", hs4_d:"We create and publish. You approve.",
-    hp_label:"// how it works",
-    hp1_t:"You get in touch", hp1_d:"Write what your business does. We reply within one business day.",
-    hp2_t:"We talk", hp2_d:"No strings attached. We figure out if it's a fit.",
-    hp3_t:"You get a proposal", hp3_d:"With price and plan. You decide.",
-    hb_text:"Wondering if we can help? It costs nothing to ask.",
-    hb_cta:"Send a message →",
-    s_label:"// services", s_title:"Four things we do. Nothing more.", s_sub:"Most of what businesses need online. All in one place.",
+    s_label:"// services", s_title:"What we do.", s_sub:"Most of what businesses need online. All in one place.",
     s1_t:"Website", s1_d:"We build websites from scratch. No templates. Each site is tailored to your business, optimised for speed and mobile.",
     s1_l1:"Design and development", s1_l2:"Mobile-optimised", s1_l3:"Basic SEO setup", s1_l4:"You own everything we build",
     s2_t:"Google SEO", s2_d:"We make your business visible on Google. Technical optimisation, content targeting the keywords your customers use, and ongoing follow-up.",
@@ -797,11 +685,14 @@ const T = {
     s3_l1:"Campaign setup", s3_l2:"Ongoing optimisation", s3_l3:"Audience targeting", s3_l4:"Clear reporting",
     s4_t:"Social media", s4_d:"We take over social media for you. Content production, planning, publishing. You approve everything before it goes out.",
     s4_l1:"Content production", s4_l2:"Publishing schedule", s4_l3:"Profile management", s4_l4:"Monthly summary",
-    s_cta_p:"Not sure what you need? We'll figure it out together.", s_cta:"Get in touch →",
-    a_label:"// about", a_title:"Who is Ørjan?", a_role:"founder, GENIAL! Marketing",
-    a_p1:"Ten years of marketing for other companies. Then he started his own. GENIAL! was born because Ørjan wanted to work more closely with his clients.",
-    a_p2:"He takes on a few clients at a time. That way he actually has time to understand your business.",
-    a_p3:"He works with businesses of all sizes and industries. Most of them know they should be doing more online, but don't have the time to do it themselves.",
+    hp_label:"// how it works", hp_title:"How we get started.",
+    hp1_t:"You get in touch", hp1_d:"Write what your business does. We reply within one business day.",
+    hp2_t:"We talk", hp2_d:"No strings attached. We figure out if it's a fit.",
+    hp3_t:"You get a proposal", hp3_d:"With price and plan. You decide.",
+    a_label:"// about", a_title:"About us", a_role:"founder, GENIAL! Marketing",
+    a_p1:"Ten years of marketing for other companies. Then we started GENIAL! because we wanted to work more closely with our clients.",
+    a_p2:"We take on a few clients at a time. That way we actually have time to understand your business.",
+    a_p3:"We work with businesses of all sizes and industries. Most of them know they should be doing more online, but don't have the time to do it themselves.",
     af1:"years experience", af2:"months contract", af3:"point of contact",
     faq_label:"// common questions",
     faq1_q:"Is the first conversation free?", faq1_a:"Yes. Always. We have a chat, see if it's a fit, and you decide from there.",
@@ -828,8 +719,8 @@ function setLang(lang) {
     ? 'GENIAL! Marketing – Digital markedsføring uten binding'
     : 'GENIAL! Marketing – Digital Marketing, No Commitment';
   document.querySelector('meta[name="description"]').content = lang === 'no'
-    ? 'GENIAL! Marketing hjelper bedrifter i hele Norge med nettside, Google SEO, annonsering og sosiale medier. Ingen binding. Du snakker alltid med Ørjan.'
-    : 'GENIAL! Marketing helps businesses across Norway with website, Google SEO, advertising and social media. No commitment. You always talk to Ørjan.';
+    ? 'GENIAL! Marketing hjelper bedrifter i hele Norge med nettside, Google SEO, annonsering og sosiale medier. Ingen binding.'
+    : 'GENIAL! Marketing helps businesses across Norway with website, Google SEO, advertising and social media. No commitment.';
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.textContent = t[key];
@@ -854,28 +745,33 @@ function setLang(lang) {
   Object.entries(ph[lang]).forEach(([id, p]) => { const el = document.getElementById(id); if (el) el.placeholder = p; });
 }
 
-function showPage(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-link[data-page]').forEach(a => a.classList.remove('active'));
-  const target = document.getElementById('page-' + page);
-  if (target) {
-    target.classList.add('active');
-    document.querySelectorAll(`[data-page="${page}"]`).forEach(a => a.classList.add('active'));
-    history.replaceState(null, '', '#' + page);
-    window.scrollTo(0, 0);
-  }
-}
-
 const ham = document.getElementById('hamburger');
 const mob = document.getElementById('mobile-menu');
 ham.addEventListener('click', () => {
   const open = mob.classList.toggle('open');
+  ham.setAttribute('aria-expanded', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
 function closeMobile() {
   mob.classList.remove('open');
+  ham.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 }
+
+function updateNav() {
+  const secs = document.querySelectorAll('section[id]');
+  let current = 'hjem';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -912,11 +808,10 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   }
 });
 
-const hash = window.location.hash.slice(1);
-if (['hjem','tjenester','om','kontakt'].includes(hash)) showPage(hash);
 const urlP = new URLSearchParams(window.location.search);
 const saved = localStorage.getItem('lang');
 if (urlP.get('lang') === 'en' || (saved === 'en' && !urlP.get('lang'))) setLang('en');
+updateNav();
 </script>
 </body>
 </html>
